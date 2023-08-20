@@ -1,0 +1,69 @@
+$date
+	Sun Aug 13 11:05:36 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module transmission_gates $end
+$var wire 1 ! data_bus $end
+$var wire 1 " out1 $end
+$var wire 1 # out2 $end
+$var reg 1 $ data_low $end
+$var reg 1 % in $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0%
+0$
+1#
+0"
+1!
+$end
+#2
+0#
+1"
+0!
+1%
+#4
+1#
+0"
+0%
+z!
+1$
+#6
+0#
+1"
+1%
+#8
+1#
+0"
+0%
+1!
+0$
+#10
+0#
+1"
+0!
+1%
+#12
+1#
+0"
+1!
+0%
+#14
+0#
+1"
+0!
+1%
+#16
+1#
+0"
+1!
+0%

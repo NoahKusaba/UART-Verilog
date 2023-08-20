@@ -1,0 +1,30 @@
+$date
+	Sun Aug 13 10:08:12 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module gates $end
+$var wire 1 ! o_1 $end
+$var reg 1 " i_1 $end
+$var reg 1 # i_2 $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0#
+0"
+0!
+$end
+#1
+1"
+#2
+1!
+1#
+#3

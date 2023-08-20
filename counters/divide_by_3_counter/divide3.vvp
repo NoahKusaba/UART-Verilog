@@ -1,0 +1,90 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000021ed4906ab0 .scope module, "test" "test" 2 29;
+ .timescale 0 0;
+v0000021ed48f4d90_0 .var "clk_in", 0 0;
+v0000021ed4903860_0 .net "clk_out", 0 0, L_0000021ed4903a40;  1 drivers
+v0000021ed4903900_0 .var "reset", 0 0;
+S_0000021ed4906c40 .scope module, "U" "divide_3" 2 32, 2 1 0, S_0000021ed4906ab0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk_in";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /OUTPUT 1 "clk_out";
+v0000021ed48d3360_0 .net *"_ivl_0", 31 0, L_0000021ed49039a0;  1 drivers
+L_0000021ed494a028 .functor BUFT 1, C4<000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000021ed48d2ee0_0 .net *"_ivl_3", 29 0, L_0000021ed494a028;  1 drivers
+L_0000021ed494a070 .functor BUFT 1, C4<00000000000000000000000000000010>, C4<0>, C4<0>, C4<0>;
+v0000021ed48babd0_0 .net/2u *"_ivl_4", 31 0, L_0000021ed494a070;  1 drivers
+v0000021ed48bbeb0_0 .net "clk_in", 0 0, v0000021ed48f4d90_0;  1 drivers
+v0000021ed4906dd0_0 .net "clk_out", 0 0, L_0000021ed4903a40;  alias, 1 drivers
+v0000021ed4906e70_0 .var "pos_cnt", 1 0;
+v0000021ed48f4cf0_0 .net "reset", 0 0, v0000021ed4903900_0;  1 drivers
+E_0000021ed48bcc40 .event posedge, v0000021ed48bbeb0_0;
+L_0000021ed49039a0 .concat [ 2 30 0 0], v0000021ed4906e70_0, L_0000021ed494a028;
+L_0000021ed4903a40 .cmp/ne 32, L_0000021ed49039a0, L_0000021ed494a070;
+    .scope S_0000021ed4906c40;
+T_0 ;
+    %wait E_0000021ed48bcc40;
+    %load/vec4 v0000021ed48f4cf0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 2;
+    %assign/vec4 v0000021ed4906e70_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0000021ed4906e70_0;
+    %pad/u 32;
+    %cmpi/e 2, 0, 32;
+    %flag_mov 8, 4;
+    %jmp/0 T_0.2, 8;
+    %pushi/vec4 0, 0, 2;
+    %jmp/1 T_0.3, 8;
+T_0.2 ; End of true expr.
+    %load/vec4 v0000021ed4906e70_0;
+    %addi 1, 0, 2;
+    %jmp/0 T_0.3, 8;
+ ; End of false expr.
+    %blend;
+T_0.3;
+    %assign/vec4 v0000021ed4906e70_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0000021ed4906ab0;
+T_1 ;
+    %vpi_call 2 39 "$dumpfile", "divide3.vcd" {0 0 0};
+    %vpi_call 2 40 "$dumpvars" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021ed48f4d90_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021ed4903900_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000021ed4903900_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000021ed4903900_0, 0, 1;
+    %delay 100, 0;
+    %vpi_call 2 45 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0000021ed4906ab0;
+T_2 ;
+    %delay 1, 0;
+    %load/vec4 v0000021ed48f4d90_0;
+    %inv;
+    %store/vec4 v0000021ed48f4d90_0, 0, 1;
+    %jmp T_2;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "divide3.v";
